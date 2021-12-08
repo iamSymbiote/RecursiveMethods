@@ -28,11 +28,18 @@ namespace RecursiveMethods
                 Console.WriteLine("sayi yok.");
             else
                 Console.WriteLine(result.Value + "sayi bulundu.");
-                
 
-            
+            result = FindItemByLinq(list, 99);
+            if (!result.HasValue)
+                Console.WriteLine("sayi yok.");
+            else
+                Console.WriteLine(result.Value + "sayi var.");
 
-            Console.ReadLine();
+
+
+
+
+                Console.ReadLine();
         }
 
         static void DisplayNumbers(int start, int end, int increment = 1)
@@ -89,7 +96,15 @@ namespace RecursiveMethods
 
         static int? FindItemByLinq(List<int> list, int itemToFind)   //LINQ'i kullanan ve foreach/if'li yaptigimiz dongunun aynisini yapan tek satir efso kod. 
         {
-            return list.Single(number => number == itemToFind);  // number yerine istedigin degeri/ismi vs. girebilirsin yani list.Single(J => j == itemtofind) yazabilirdik.
+            try
+            {
+                return list.Single(number => number == itemToFind); // number yerine istedigin degeri/ismi vs. girebilirsin yani list.Single(J => j == itemtofind) yazabilirdik.
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }  
         }
 
     }
