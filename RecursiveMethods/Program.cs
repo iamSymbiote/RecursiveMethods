@@ -86,5 +86,11 @@ namespace RecursiveMethods
             return result;
 
         }
+
+        static int? FindItemByLinq(List<int> list, int itemToFind)   //LINQ'i kullanan ve foreach/if'li yaptigimiz dongunun aynisini yapan tek satir efso kod. 
+        {
+            return list.Single(number => number == itemToFind);  // number yerine istedigin degeri/ismi vs. girebilirsin yani list.Single(J => j == itemtofind) yazabilirdik.
+        }
+
     }
 }
